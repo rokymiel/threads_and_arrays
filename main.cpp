@@ -34,6 +34,7 @@ uint *generateArray() {
 /// \param num Число для проверки на простоту
 /// \return Результат проверки
 bool isPrime(long num) {
+    if (num == 0 || abs(num) == 1) return false;
     for (long j = 2; j <= sqrt(abs(num)); ++j) {
         if (num % j == 0) return false;
     }
