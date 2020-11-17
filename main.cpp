@@ -74,6 +74,10 @@ void printArray(std::string arrayName, uint *ar) {
 
 int main(int argc, char **argv) {
     srand((unsigned) time(NULL));
+    if (argc != 3) { // Проверяем число аргументов
+        std::cout << "Wrong number of console arguments" << std::endl;
+        return 1;
+    }
     if (std::stol(argv[1]) < 1001) { // Проверяем верхнюю границу
         std::cout << "Wrong upper bound" << std::endl;
         return 1;
