@@ -34,7 +34,7 @@ uint *generateArray() {
 /// \param num Число для проверки на простоту
 /// \return Результат проверки
 bool isPrime(long num) {
-    for (long j = 2; j < sqrt(abs(num)); ++j) {
+    for (long j = 2; j <= sqrt(abs(num)); ++j) {
         if (num % j == 0) return false;
     }
     return true;
@@ -99,7 +99,7 @@ int main(int argc, char **argv) {
     std::cout << "Set of indices i:" << std::endl;
     pthread_t pthreads[thread_num];
     for (uint j = 0; j < thread_num; ++j) { // Создаем потоки
-        pthread_create(&pthreads[j], nullptr, func, (void *) (&(j)));
+        pthread_create(&pthreads[j], nullptr, func, nullptr);
     }
     for (uint j = 0; j < thread_num; ++j) { // Синхронизируем потоки
         pthread_join(pthreads[j], nullptr);
